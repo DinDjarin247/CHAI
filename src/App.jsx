@@ -9,6 +9,8 @@ import Kindergarden from "./ProgamIntroduce.jsx/Kindergarden";
 import ElementLow from "./ProgamIntroduce.jsx/ElementLow";
 import ElementHigh from "./ProgamIntroduce.jsx/ElemetHigh";
 import Footer from "./components/Footer";
+import TrainingIndex from "./Training/TrainingIndex";
+import ProfSearch from "./components/ProfSearch";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/kindergarden" element={<Kindergarden />} />
         <Route path="/ElementLow" element={<ElementLow />} />
         <Route path="/ElementHigh" element={<ElementHigh />} />
+        <Route path="/TrainingIndex" element={<TrainingIndex />} />
+        <Route path="/SEARCH" element={<ProfSearch />} />
         <Route path="/" element={<Home />} /> {/* Home 컴포넌트와 연결 */}
       </Routes>
       <Footer />

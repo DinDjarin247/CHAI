@@ -30,14 +30,6 @@ const ChipTag = ({ sendChip }) => {
     fetchTags();
   }, []);
 
-  const MyAlert = () => {
-    return (
-      <div style={{ backgroundColor: "lightgray", padding: "10px" }}>
-        <p style={{ color: "red", marginBottom: "0" }}>경고 메시지!</p>
-      </div>
-    );
-  };
-
   const handleDelete = (chipToDelete) => async () => {
     try {
       await fetch(`http://localhost:5000/tags/${chipToDelete.tagId}`, {
@@ -91,7 +83,7 @@ const ChipTag = ({ sendChip }) => {
   const handleClick = (chip) => {
     console.log(`You clicked ${chip.label}, ${chip.tagId} Chip.`, chip);
 
-    // Prevent adding duplicate chips to the cart
+    //같은거 추가 금지
     if (chipCartData.some((cartChip) => cartChip.tagId === chip.tagId)) return;
 
     setChipCartData([...chipCartData, chip]);

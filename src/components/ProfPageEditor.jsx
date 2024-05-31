@@ -77,37 +77,42 @@ const ProfPageEditor = ({ addPerson }) => {
           m: 0,
         }}
       >
-        <TextField
-          required
-          id="outlined-required"
-          label="Name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Title"
-          className="grow"
-        />
-        <TextField
-          required
-          id="outlined-required"
-          label="Age"
-          type="text"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-          placeholder="Subheader"
-          className="grow"
-        />
-        <ImgLinkConverter onUpload={(url) => console.log("Image URL:", url)} />
-        <TextField
-          required
-          id="outlined-required"
-          label="img"
-          type="text"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-          placeholder="Image URL"
-          className="grow"
-        />
+        <FormControl sx={{ width: 1500 }}>
+          <TextField
+            required
+            id="outlined-required"
+            label="Name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Title"
+            className="grow"
+          />
+          <TextField
+            required
+            id="outlined-required"
+            label="Age"
+            type="text"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+            placeholder="Subheader"
+            className="grow"
+          />
+
+          <TextField
+            required
+            id="outlined-required"
+            label="img"
+            type="text"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            placeholder="Image URL"
+            className="grow"
+          />
+          <ImgLinkConverter
+            onUpload={(url) => console.log("Image URL:", url)}
+          />
+        </FormControl>
 
         <Calendar setDate={setClassStartDate} />
 

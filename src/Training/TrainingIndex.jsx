@@ -1,24 +1,20 @@
-import * as React from "react";
 import { useEffect, useState } from "react";
-import ProfPageEditor from "./ProfPageEditor";
+import TrainingCard from "./TrainingCard";
+import TrainingEditor from "./TrainingEditor";
 
-import ProfPage from "./ProfPage"; // Ensure you have this import for the ProfPage component
+const TrainingIndex = () => {
+  const [trainings, setTrainings] = useState([]);
 
-import "./ProfIndex.css";
-
-export default function ProfIndex() {
-  const [persons, setPersons] = useState([]);
-
-  const addPerson = (person) => {
-    setPersons([...persons, person]);
-    console.log(person, "동작했다 App");
+  const addTraining = (training) => {
+    setTrainings([...trainings, training]);
+    console.log(training, "동작했다 App");
   };
   useEffect(() => {
     const fetchPersons = async () => {
       try {
         const response = await fetch("http://localhost:5000/persons");
         const data = await response.json();
-        setPersons(data);
+        setTrainings(data);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -26,16 +22,17 @@ export default function ProfIndex() {
 
     fetchPersons();
   }, []);
-  console.log(persons, "Index");
+  console.log(trainings, "Index");
 
   return (
     <>
-      <ProfPageEditor addPerson={addPerson}></ProfPageEditor>
+      <TrainingEditor addPerson={addTraining}></TrainingEditor>
 
+      <div className="divider">SEARCH</div>
       <div className="container">
-        {persons.map((person, index) => (
+        {trainings.map((person, index) => (
           <div className="item" key={index}>
-            <ProfPage
+            <TrainingCard
               name={person.name}
               age={person.age}
               image={person.image}
@@ -49,4 +46,6 @@ export default function ProfIndex() {
       </div>
     </>
   );
-}
+};
+
+export default TrainingIndex;

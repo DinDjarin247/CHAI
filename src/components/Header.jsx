@@ -43,6 +43,9 @@ const Header = () => {
     if (text === "초등 고학년") {
       navigate("/ElementHigh");
     }
+    if (text === "트레이닝") {
+      navigate("/Training");
+    }
   };
   const handleClickHome = () => {
     navigate("/");
@@ -55,7 +58,7 @@ const Header = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["somthing", "Starred", "Send email", "Drafts"].map((text) => (
+        {["somthing", "Starred", "Send email", "트레이닝"].map((text) => (
           <ListItem key={text}>
             <ListItemButton onClick={() => handleListItemClick(text)}>
               {text}
